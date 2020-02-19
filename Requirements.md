@@ -26,6 +26,12 @@ What will your MVP functionality be?
 
 ## Functional Requirements
 
+## Non-functional Requirements:
+
+* Our app will validate user input into the search field provided to make sure it is within the bounds that we expect. We will do this using RegEx. It will give them an error if something invalid is entered.
+
+* Our app will abide by stylistic guidelines to provide the best experience for impaired users. This includes avoiding certain color themes, and utilizing alt text and proper ordering of tags in HTML to make screen readers effective. For styling, we will use google dev tools to check for color contrasts.
+
 ### Data Flow
 1. Upon rendering the home page, the user has the ability to search for locations by world region, or by language spoken. 
 2. The user also has the option to search for a specific country's data 
