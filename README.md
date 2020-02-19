@@ -10,10 +10,12 @@ This Application allows the user to search for a new country to move to!
 View our work flow and user stories [here](https://trello.com/b/tkq8DAxK/get-outta-here).
 
 ## Architecture
-
-[Database Relationships]()
-[WireFrame]()
-[Data Flow]()
+### DB Relationships
+![Database Relationships](assets/db-rel.png)
+### Wireframe
+![WireFrame](assets/wireframe.png)
+### Data Flow
+![Data Flow](assets/dataflow.png)
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
