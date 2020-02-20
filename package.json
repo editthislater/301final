@@ -1,0 +1,29 @@
+{
+  "name": "301final",
+  "version": "1.0.0",
+  "description": "**Authors**: Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir **Version**: 1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/editthislater/301final.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/editthislater/301final/issues"
+  },
+  "homepage": "https://github.com/editthislater/301final#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "pg": "^7.18.1",
+    "superagent": "^5.2.2"
+  }
+}
