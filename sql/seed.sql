@@ -1,0 +1,1 @@
+INSERT INTO countries (name, language, region, subregion, capital, currency) VALUES ('USA', 'English', 'Americas', 'North America', 'Washington DC', 'Dollar')
