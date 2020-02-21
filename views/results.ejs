@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+</head>
+<body>
+  <header>
+
+  </header>
+  <main>
+    <h1>Search Results</h1>
+    <section>
+      <% countries.forEach(country => { %>
+        <section>
+          <img src="<%- country.flag_url %>" alt="'<%- country.name %> flag'">
+          <form action="" method="post">
+            <input type="hidden" name="name" value="<%- country.name %>">
+            <input type="hidden" name="region" value="<%- country.region %>">
+            <input type="hidden" name="subregion" value="<%- country.subregion %>">
+            <input type="hidden" name="capital" value="<%- country.capital %>">
+            <input type="hidden" name="currency" value="<%- country.currency %>">
+            <input type="hidden" name="flag_url" value="<%- country.flag_url %>">
+            <button><%- country.name %></button>
+          </form>
+        </section>
+      <% }) %>
+    </section>
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>
