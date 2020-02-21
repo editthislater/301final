@@ -1,0 +1,15 @@
+#logo {
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+#aboutlink {
+  text-decoration: none;
+  color: #111;
+}
+
+#aboutlink:after {
+  text-decoration: none;
+  color: inherit;
+}
