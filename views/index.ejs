@@ -20,7 +20,7 @@
 
     <section id="searchform">
       <h1>Search form goes here</h1>
-      <form id="newsearch" method="post" action="">
+      <form id="newsearch" method="post" action="/searchspecific">
         <fieldset>
 <!-- begin country search form -->
           <input id="searchbar" type="text" name ="search" placeholder="Search for a Specific Country"/>
@@ -69,26 +69,25 @@
     <section id="savedlist">
       <h1>Saved Countries will live here</h1>
       <ul id="temp">
-
-        <div id="eachloc">
-          <li id="flagimg"></li>
-            sampleflag
-          </li>
-          <li id="countryname">
-
-            samplename
-          </li>
-          <li id="sampledata">
-            sampledata
-          </li>
-          <li id="sampledata">
-            sampledata
-          </li>
-          <li id="sampledata">
-            sampledata
-          </li>
-        </div>
-
+        <% countries.forEach(country => { %>
+          <section class="country">
+            <li class="flagimg"></li>
+              sampleflag
+            </li>
+            <li class="countryname">
+              <%- country.name %>
+            </li>
+            <li class="sampledata">
+              sampledata
+            </li>
+            <li class="sampledata">
+              sampledata
+            </li>
+            <li class="sampledata">
+              sampledata
+            </li>
+          </section>
+        <% }) %>
       </ul>
     </section>
 
