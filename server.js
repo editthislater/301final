@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', homePage);
 app.post('/searchspecific', searchCountry);
+app.post('/details', displayDetails);
 
 
 // Route Callbacks
@@ -51,6 +52,10 @@ function searchCountry (req, res) {
       res.render('results.ejs', {countries: countryArr});
     })
     .catch(err => console.error(err));
+}
+
+function displayDetails (req, res){
+  res.render('countrydetails.ejs', {country: req.body});
 }
 
 // Country constructor function
