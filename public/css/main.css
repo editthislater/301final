@@ -6,5 +6,19 @@
 
 body, html {
   width: 100%;
-  background: #fff;
+  height: 100%;
 }
+
+body {
+  /* The image used */
+  background-image: url("https://images.unsplash.com/photo-1551385917-889e48f92c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
