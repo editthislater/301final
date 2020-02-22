@@ -10,6 +10,26 @@ main {
   width: 50%;
 }
 
+main #results {
+  width: 90%;
+  background-color: #002022ab;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+  max-height: 72vh;
+  overflow: scroll;
+}
+
+main h2 {
+  text-align: center;
+  color: #eee;
+  width: 60%;
+  margin: .75rem auto;
+
+}
+
 body .form,
 #savedlist {
   margin-top: 1rem;
@@ -26,7 +46,7 @@ main nav {
 nav button {
   margin: 0 .5rem;
   width: 5rem;
-  height: 2rem;
+  height: fit-content;
   border-radius: .5rem;
   background-color: #002022ab;
   color: #eee;

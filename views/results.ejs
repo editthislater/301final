@@ -8,13 +8,13 @@
 </head>
 <body>
   <header>
-    <h1>xPatriate</h1>
-    <h2>Search Results</h2>
+    <h1 id="logo">xPatriate</h1>
   </header>
   <main>
-    <section>
+    <h2>Search Results</h2>
+    <section id="results">
       <% countries.forEach(country => { %>
-        <section class="countrybutton">
+        <section class="result">
           <img src="<%- country.flag_url %>" alt="<%- country.name %> flag">
           <form action="/details" method="post">
             <input type="hidden" name="name" value="<%- country.name %>">
@@ -32,7 +32,8 @@
     </section>
   </main>
   <footer>
-
+    <p>&copy; 2020 Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir</p>
+    <a href="/about" id="aboutlink">About Our Team</a>
   </footer>
 </body>
 </html>

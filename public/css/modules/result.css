@@ -1,0 +1,30 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  margin: .5rem auto;
+  border: .1rem solid rgba(238, 238, 238, 0.26);
+  border-radius: .1rem;
+  padding: .5rem;
+}
+
+.result img {
+  max-width: 5rem;
+}
+
+.result form button {
+  height: fit-content;
+  margin-top: .5rem;
+  background-color: #002022ab;
+  color: #eee;
+  border-radius: .5rem;
+}
+
+.result form button:hover {
+  cursor: pointer;
+  background-color: #eee;
+  color: #002022ab;
+
+}
