@@ -10,61 +10,49 @@
   <link rel="stylesheet" href="css/state.css">
   <link rel="stylesheet" href="css/theme.css">
 </head>
-<body class="idxbody">
+<body>
 
-  <section class="headerdiv">
+  <header>
     <h1 id="logo">xPatriate</h1>
-  </section>
+  </header>
+   
+  <main>
 
-  <main class="idxmain">
-
-    <section id="searchform">
+    <section id="searchform" class="form">
       <h1>Search form goes here</h1>
-      <form id="newsearch" method="post" action="/searchspecific">
-        <fieldset>
-<!-- begin country search form -->
+      <form id="newsearch" class="form" method="post" action="/searchspecific">
           <input id="searchbar" type="text" name ="search" placeholder="Search for a Specific Country"/>
-<!-- end country search form -->
-<!-- begin region dropdown -->
-          <div class="dropdown">
-            <button class="dropbtn">Find Countries by Region
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </div>
-          <br>
-<!-- end region dropdown -->
-<!-- begin subregion dropdown -->
-          <div class="dropdown">
-            <button class="dropbtn">Find Countries by Subregion
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </div>
-<!-- end subregion dropdown -->
-<!-- begin languages dropdown -->
-          <div class="dropdown">
-            <button class="dropbtn">Find Countries by National Language
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </div>
-<!-- end languages dropdown -->
-
           <button>Search</button>
-        </legend>
-        </fieldset>
       </form>
     </section>
+
+    <section class="form">
+      <button>Filter by Region</button>
+      <form id="regionform" class="form" method="" action="">
+        <label for="region">Region</label>
+        <select id="region">
+          <option value="africa">Africa</option>
+          <option value="americas">Americas</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="oceania">Oceania</option>
+        </select>
+        <label for="subregion">SubRegion</label>
+        <select id="subregion">
+          <option value="northern africa">Northern Africa</option>
+        </select>
+        <label for="language">Language</label>
+        <select id="language">
+          <option value="arabic">Arabic</option>
+        </select>
+        <button>Search</button>
+      </form>
+    </section>
+
+
+
+
+
 
     <section id="savedlist">
       <h1>Saved Countries will live here</h1>

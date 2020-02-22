@@ -1,23 +1,25 @@
-.idxbody {
+body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.headerdiv {
-  border: 1px solid red;
-  margin: 1rem;
-  max-height: 20vh;
-}
-
-.idxmain {
+main {
   flex: 1;
+  width: 50%;
 }
 
-#searchform {
+.form {
+  display: flex;
+  flex-direction: column;
   border: 1px solid orange;
-  margin: 1rem;
-  max-height: 30vh;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  /* max-height: 30vh; */
 }
 
 #savedlist {

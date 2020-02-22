@@ -4,7 +4,7 @@ let slides = ['/assets/maps.jpeg', '/assets/pins.jpeg', '/assets/vintageglobe.jp
 let imageIndex = 0;
 
 setInterval(() => {
-  let background = $('.idxbody');
+  let background = $('body');
   background.animate({opacity: 1}, 250);
   background.css('background-image', `url('${slides[imageIndex]}')`);
   setTimeout(() => {
