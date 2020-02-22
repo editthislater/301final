@@ -17,17 +17,19 @@
   </header>
    
   <main>
+    <nav>
+      <button>Search for Country</button>
+      <button>Filter by Region</button>
+    </nav>
 
-    <section id="searchform" class="form">
-      <h1>Search form goes here</h1>
+    <!-- <section id="searchform" class="form"> -->
       <form id="newsearch" class="form" method="post" action="/searchspecific">
           <input id="searchbar" type="text" name ="search" placeholder="Search for a Specific Country"/>
           <button>Search</button>
       </form>
-    </section>
+    <!-- </section> -->
 
-    <section class="form">
-      <button>Filter by Region</button>
+    <!-- <section class="form"> -->
       <form id="regionform" class="form" method="" action="">
         <label for="region">Region</label>
         <select id="region">
@@ -47,7 +49,7 @@
         </select>
         <button>Search</button>
       </form>
-    </section>
+    <!-- </section> -->
 
 
 
@@ -81,11 +83,11 @@
 
   </main>
 
-  <section class="footerdiv">
+  <footer>
     <p>&copy; 2020 Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir</p>
     <a href="/about" id="aboutlink">About Our Team</a>
-  </section>
+  </footer>
   <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="js/app.js"></script>
+  <!-- <script src="js/app.js"></script> -->
 </body>
 </html>
