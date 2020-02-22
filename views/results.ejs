@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
   <title>Search Results</title>
 </head>
 <body>
   <header>
-
+    <h1>xPatriate</h1>
+    <h2>Search Results</h2>
   </header>
   <main>
-    <h1>Search Results</h1>
     <section>
       <% countries.forEach(country => { %>
-        <section>
+        <section class="countrybutton">
           <img src="<%- country.flag_url %>" alt="<%- country.name %> flag">
           <form action="/details" method="post">
             <input type="hidden" name="name" value="<%- country.name %>">
