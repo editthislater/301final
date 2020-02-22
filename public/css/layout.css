@@ -23,6 +23,21 @@ main nav {
   margin-top: .5rem;
 }
 
+nav button {
+  margin: 0 .5rem;
+  width: 5rem;
+  height: 2rem;
+  border-radius: .5rem;
+  background-color: #002022ab;
+  color: #eee;
+}
+
+nav button:hover {
+  background-color: #eee;
+  color: #002022ab;
+  cursor: pointer;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -33,6 +48,7 @@ main nav {
   color: #eee;
 
 }
+
 .form select {
   width: 40%;
   height: 1.5rem;
@@ -47,18 +63,42 @@ main nav {
   text-align: center;
 }
 
+.form button {
+  background-color: #002022ab;
+  color: #eee;
+  border-radius: .5rem;
+  margin-top: .25rem;
+}
+
+.form button:hover {
+  background-color: #eee;
+  color: #002022ab;
+  cursor: pointer;
+}
+
 #savedlist {
-  /* border: 1px solid green; */
-  max-height: 40vh;
-  overflow: scroll;
+  height: 26vh;
   text-align: center;
   background-color: #002022ab;
   color: #eee;
+}
 
+#savedlist h1 {
+  padding: .25rem 0;
+}
+
+#savedlist section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  max-height: 20vh;
+  overflow: scroll;
+  scroll-behavior: smooth;
 }
 
 body footer {
-  /* border: 1px solid blue; */
   max-height: 10vh;
   width: 100%;
   padding-top: 1rem;
