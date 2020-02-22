@@ -72,7 +72,6 @@ function saveCountry (req, res) {
   let currency = req.body.currency;
   let flag_url = req.body.flag_url;
 
-  // bookapp functions below
 
   let SQL = `INSERT INTO countries (name, language, region, subregion, capital, currency, flag_url) VALUES ($1, $2, $3, $4, $5, $6, $7);`;
   let VALUES = [name, language, region, subregion, capital, currency, flag_url];
@@ -84,8 +83,6 @@ function saveCountry (req, res) {
       res.render('index.ejs', {countries: result.rows});
     })
     .catch(error => errorHandler(error, req, res));
-
-  // end bookapp
 }
 
 // Country constructor function

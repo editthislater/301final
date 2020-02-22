@@ -33,16 +33,61 @@
       <form id="regionform" class="form" method="" action="">
         <label for="region">Region</label>
         <select id="region">
-          <option value="africa">Africa</option>
-          <option value="americas">Americas</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
+          <option class="default" value="default">Select Region</option>
+          <option class="africa" value="africa">Africa</option>
+          <option class="americas" value="americas">Americas</option>
+          <option class="asia" value="asia">Asia</option>
+          <option class="europe" value="europe">Europe</option>
+          <option class="oceania" value="oceania">Oceania</option>
         </select>
-        <label for="subregion">SubRegion</label>
-        <select id="subregion">
+        <label for="subregion">Subregion</label>
+
+        <select id="subregion-dummy">
+          <option value="dummy"></option>
+        </select>
+
+        <select id="subregion-africa" class="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="eastern africa">Eastern Africa</option>
+          <option value="middle africa">Middle Africa</option>
           <option value="northern africa">Northern Africa</option>
+          <option value="southern africa">Southern Africa</option>
+          <option value="western africa">Western Africa</option>
         </select>
+
+        <select id="subregion-americas" class="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="central america">Central America</option>
+          <option value="northern america">Northern America</option>
+          <option value="caribbean">Caribbean</option>
+          <option value="south america">South America</option>
+        </select>
+
+        <select id="subregion-asia" class="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="central asia">Central Asia</option>
+          <option value="eastern asia">Eastern Asia</option>
+          <option value="south-eastern asia">South-Eastern Asia</option>
+          <option value="southern asia">Southern Asia</option>
+          <option value="western asia">Western Asia</option>
+        </select>
+
+        <select id="subregion-europe" class="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="eastern europe">Eastern Europe</option>
+          <option value="northern europe">Northern Europe</option>
+          <option value="southern europe">Southern Europe</option>
+          <option value="western europe">Western Europe</option>
+        </select>
+
+        <select id="subregion-oceania" class="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="australia and new zealand">Australia and New Zealand</option>
+          <option value="melanesia">Melanesia</option>
+          <option value="micronesia">Micronesia</option>
+          <option value="polynesia">Polynesia</option>
+        </select>
+
         <label for="language">Language</label>
         <select id="language">
           <option value="arabic">Arabic</option>
@@ -77,6 +122,6 @@
     <a href="/about" id="aboutlink">About Our Team</a>
   </footer>
   <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <!-- <script src="js/app.js"></script> -->
+  <script src="js/app.js"></script>
 </body>
 </html>
