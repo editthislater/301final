@@ -5,6 +5,7 @@
 @import url('theme.css');
 @import url('state.css');
 @import url('modules/country.css');
+@import url('modules/result.css');
 
 body, html {
   width: 100vw;
