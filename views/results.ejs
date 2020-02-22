@@ -17,6 +17,7 @@
           <img src="<%- country.flag_url %>" alt="<%- country.name %> flag">
           <form action="/details" method="post">
             <input type="hidden" name="name" value="<%- country.name %>">
+            <input type="hidden" name="language" value="<%- country.language %>">
             <input type="hidden" name="region" value="<%- country.region %>">
             <input type="hidden" name="subregion" value="<%- country.subregion %>">
             <input type="hidden" name="capital" value="<%- country.capital %>">
