@@ -4,9 +4,100 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
+  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/state.css">
+  <link rel="stylesheet" href="css/theme.css">
 </head>
-<body>
-  <h1>Proof of live</h1>
+<body class="idxbody">
+
+  <section class="headerdiv">
+    <h1 id="logo">xPatriate</h1>
+  </section>
+
+  <main class="idxmain">
+
+    <section id="searchform">
+      <h1>Search form goes here</h1>
+      <form id="newsearch" method="post" action="/searchspecific">
+        <fieldset>
+<!-- begin country search form -->
+          <input id="searchbar" type="text" name ="search" placeholder="Search for a Specific Country"/>
+<!-- end country search form -->
+<!-- begin region dropdown -->
+          <div class="dropdown">
+            <button class="dropbtn">Find Countries by Region
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
+          <br>
+<!-- end region dropdown -->
+<!-- begin subregion dropdown -->
+          <div class="dropdown">
+            <button class="dropbtn">Find Countries by Subregion
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
+<!-- end subregion dropdown -->
+<!-- begin languages dropdown -->
+          <div class="dropdown">
+            <button class="dropbtn">Find Countries by National Language
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
+<!-- end languages dropdown -->
+
+          <button>Search</button>
+        </legend>
+        </fieldset>
+      </form>
+    </section>
+
+    <section id="savedlist">
+      <h1>Saved Countries will live here</h1>
+      <ul id="temp">
+        <% countries.forEach(country => { %>
+          <section class="country">
+            <li class="flagimg"></li>
+              sampleflag
+            </li>
+            <li class="countryname">
+              <%- country.name %>
+            </li>
+            <li class="sampledata">
+              sampledata
+            </li>
+            <li class="sampledata">
+              sampledata
+            </li>
+            <li class="sampledata">
+              sampledata
+            </li>
+          </section>
+        <% }) %>
+      </ul>
+    </section>
+
+  </main>
+
+  <section class="footerdiv">
+    <p>&copy; 2020 Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir</p>
+    <a href="/about" id="aboutlink">About Our Team</a>
+  </section>
+  <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
