@@ -58,27 +58,16 @@
 
     <section id="savedlist">
       <h1>Saved Countries will live here</h1>
-      <ul id="temp">
+      <!-- <ul id="temp"> -->
         <% countries.forEach(country => { %>
           <section class="country">
-            <li class="flagimg"></li>
-              sampleflag
-            </li>
-            <li class="countryname">
+            <img class="flagimg" src="<%- country.flag_url %>"/>
+            <p class="countryname">
               <%- country.name %>
-            </li>
-            <li class="sampledata">
-              sampledata
-            </li>
-            <li class="sampledata">
-              sampledata
-            </li>
-            <li class="sampledata">
-              sampledata
-            </li>
+            </p>
           </section>
         <% }) %>
-      </ul>
+      <!-- </ul> -->
     </section>
 
   </main>

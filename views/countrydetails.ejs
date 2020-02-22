@@ -14,10 +14,23 @@
     <section>
       <img src="<%- country.flag_url %>" alt="<%- country.name %> flag"/>
       <h2><%- country.name %></h2>
-      <p><%- country.region %></p>
-      <p><%- country.subregion %></p>
-      <p><%- country.capital %></p>
-      <p><%- country.currency %></p>
+      <p>Languages: <%- country.language %></p>
+      <p>Region: <%- country.region %></p>
+      <p>Subregion: <%- country.subregion %></p>
+      <p>Capital City: <%- country.capital %></p>
+      <p>Currency: <%- country.currency %></p>
+      <p>C Symb: <%- country.currency_symbol%></p>
+      <form action="/" method="post">
+        <input type="hidden" name="name" value="<%- country.name %>">
+        <input type="hidden" name="language" value="<%- country.language %>">
+        <input type="hidden" name="region" value="<%- country.region %>">
+        <input type="hidden" name="subregion" value="<%- country.subregion %>">
+        <input type="hidden" name="capital" value="<%- country.capital %>">
+        <input type="hidden" name="currency" value="<%- country.currency %>">
+        <input type="hidden" name="flag_url" value="<%- country.flag_url %>">
+        <input type="hidden" name="currency_symbol" value="<%- country.currency_symbol %>">
+      <button id="savebutton" type="submit">Save this Country</button>
+      </form>
     </section>
   </main>
   <footer>
