@@ -8,7 +8,9 @@
 </head>
 <body>
   <header>
-    <h1 id="logo">xPatriate</h1>
+    <a href="/">
+      <h1 id="logo">xPatriate</h1>
+    </a>
   </header>
    
   <main>
@@ -101,12 +103,22 @@
       <!-- <ul id="temp"> -->
         <section>
           <% countries.forEach(country => { %>
-            <button class="countrybutton">
-              <img class="flagimg" src="<%- country.flag_url %>"/>
-              <p class="countryname">
-                <%- country.name %>
-              </p>
-            </button>
+            <form action="/details" method="post">
+              <input type="hidden" name="name" value="<%- country.name %>">
+              <input type="hidden" name="language" value="<%- country.language %>">
+              <input type="hidden" name="region" value="<%- country.region %>">
+              <input type="hidden" name="subregion" value="<%- country.subregion %>">
+              <input type="hidden" name="capital" value="<%- country.capital %>">
+              <input type="hidden" name="currency" value="<%- country.currency %>">
+              <input type="hidden" name="flag_url" value="<%- country.flag_url %>">
+              <input type="hidden" name="currency_symbol" value="<%- country.currency_symbol %>">
+              <button type="submit" class="countrybutton">
+                <img class="flagimg" src="<%- country.flag_url %>"/>
+                <p class="countryname">
+                  <%- country.name %>
+                </p>
+              </button>
+            </form>
           <% }) %>
         </section>
       <!-- </ul> -->
