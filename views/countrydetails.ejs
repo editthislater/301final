@@ -21,7 +21,14 @@
       <p>Subregion: <%- country.subregion %></p>
       <p>Capital City: <%- country.capital %></p>
       <p>Currency: <%- country.currency %></p>
-      <p>C Symb: <%- country.currency_symbol%></p>
+      <p>Exchange Rates:</p>
+      <ul id="currency_rates">
+        <% rates.forEach(rate => { %>
+          <li>
+           <%- `${rate[0]}: ${rate[1]}` %>
+          </li>
+        <% }) %>
+      </ul>
       <form action="/" method="post">
         <input type="hidden" name="name" value="<%- country.name %>">
         <input type="hidden" name="language" value="<%- country.language %>">
