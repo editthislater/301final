@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', homePage);
 app.post('/searchspecific', searchCountry);
+app.post('/filtersearch', filterSearch);
 app.post('/details', displayDetails);
 app.get('/error', errorHandler);
 app.post('/', saveCountry);
@@ -57,6 +58,28 @@ function searchCountry (req, res) {
     .catch(error => errorHandler(error, req, res));
 }
 
+function filterSearch (req, res) {
+  let region = req.body.region;
+  let subregion = req.body.subregion.filter(subregion => {
+    return subregion !== 'default';
+  })[0];
+  let language = req.body.language.filter(language => {
+    return language !== 'default';
+  })[0];
+
+  let url = `https://restcountries.eu/rest/v2/region/${region}`;
+
+  superagent.get(url)
+    .then(results => {
+      let countryArr = filterSubregion(results.body, subregion, language);
+      console.log(countryArr);
+      let constructedCountries = countryArr.map(country => {
+        return new Country(country);
+      });
+      res.render('results.ejs', {countries: constructedCountries});
+    });
+}
+
 function displayDetails (req, res){
   res.render('countrydetails.ejs', {country: req.body});
 }
@@ -85,6 +108,7 @@ function saveCountry (req, res) {
     .catch(error => errorHandler(error, req, res));
 }
 
+
 // Country constructor function
 function Country (data) {
   this.name = data.name;
@@ -100,6 +124,32 @@ function Country (data) {
 // Helper functions
 function errorHandler(error, request, response) {
   response.render('../views/error.ejs');
+}
+
+function filterSubregion (results, subregion, language) {
+  let subregionFilterArr =  results.filter(country => {
+    return country.subregion.toLowerCase() === subregion.toLowerCase();
+  });
+  console.log('subregionArr:', subregionFilterArr);
+  return filterLanguage(subregionFilterArr, language);
+}
+
+function filterLanguage(arr, language) {
+  console.log('Inside filterLanguage');
+  console.log('filterLanguage arr:', arr);
+  return arr.filter(country => {
+    let languageMatch = false;
+    country.languages.forEach(lang => {
+      console.log('forEach start');
+      if (lang.name.toLowerCase() === language.toLowerCase()) {
+        console.log('Should be TRUE');
+        languageMatch = true;
+      }
+      console.log('forEach end');
+    });
+    console.log('languageMatch:', languageMatch);
+    return languageMatch;
+  });
 }
 
 

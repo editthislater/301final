@@ -27,10 +27,10 @@
     <!-- </section> -->
 
     <!-- <section class="form"> -->
-      <form id="regionform" class="form" method="" action="">
+      <form id="regionform" class="form" method="post" action="/filtersearch">
         <label for="region">Region</label>
 
-        <select id="region">
+        <select id="region" name="region">
           <option class="default" value="default">Select Region</option>
           <option class="africa" value="africa">Africa</option>
           <option class="americas" value="americas">Americas</option>
@@ -44,7 +44,7 @@
           <option value="dummy"></option>
         </select>
 
-        <select id="subregion-africa" class="subregion">
+        <select id="subregion-africa" class="subregion" name="subregion">
           <option class="default" value="default">Select Subregion</option>
           <option value="eastern africa">Eastern Africa</option>
           <option value="middle africa">Middle Africa</option>
@@ -53,7 +53,7 @@
           <option value="western africa">Western Africa</option>
         </select>
 
-        <select id="subregion-americas" class="subregion">
+        <select id="subregion-americas" class="subregion" name="subregion">
           <option class="default" value="default">Select Subregion</option>
           <option value="central america">Central America</option>
           <option value="northern america">Northern America</option>
@@ -61,7 +61,7 @@
           <option value="south america">South America</option>
         </select>
 
-        <select id="subregion-asia" class="subregion">
+        <select id="subregion-asia" class="subregion" name="subregion">
           <option class="default" value="default">Select Subregion</option>
           <option value="central asia">Central Asia</option>
           <option value="eastern asia">Eastern Asia</option>
@@ -70,7 +70,7 @@
           <option value="western asia">Western Asia</option>
         </select>
 
-        <select id="subregion-europe" class="subregion">
+        <select id="subregion-europe" class="subregion" name="subregion">
           <option class="default" value="default">Select Subregion</option>
           <option value="eastern europe">Eastern Europe</option>
           <option value="northern europe">Northern Europe</option>
@@ -78,7 +78,7 @@
           <option value="western europe">Western Europe</option>
         </select>
 
-        <select id="subregion-oceania" class="subregion">
+        <select id="subregion-oceania" class="subregion" name="subregion">
           <option class="default" value="default">Select Subregion</option>
           <option value="australia and new zealand">Australia and New Zealand</option>
           <option value="melanesia">Melanesia</option>
@@ -93,7 +93,7 @@
             <option value="dummy"></option>
         </select>
 
-        <select id="language-africa" class="language">
+        <select id="language-africa" class="language" name="language">
           <option class="default" value="default">Select Language</option>
           <option value="afrikaans">Afrikaans</option>
           <option value="amharic">Amharic</option>
@@ -126,12 +126,12 @@
           <option value="Zulu">Zulu</option>
         </select>
 
-        <select id="language-americas" class="language">
+        <select id="language-americas" class="language" name="language">
           <option class="default" value="default">Select Language</option>
           <option value="english">English</option>
         </select>
 
-        <select id="language-asia" class="language">
+        <select id="language-asia" class="language" name="language">
           <option class="default" value="default">Select Language</option>
           <option value="arabic">Arabic</option>
           <option value="armenian">Armenian</option>
@@ -174,12 +174,12 @@
 
         </select>
 
-        <select id="language-europe" class="language">
+        <select id="language-europe" class="language" name="language">
           <option class="default" value="default">Select Language</option>
           <option value="albanian">Albanian</option>
         </select>
 
-        <select id="language-oceania" class="language">
+        <select id="language-oceania" class="language" name="language">
           <option class="default" value="default">Select Language</option>
           <option value="bislama">Bislama</option>
         </select>
