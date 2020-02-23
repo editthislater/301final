@@ -81,7 +81,15 @@ function filterSearch (req, res) {
 }
 
 function displayDetails (req, res){
-  res.render('countrydetails.ejs', {country: req.body});
+  let currency_code = req.body.currency;
+  let url = `https://api.exchangerate-api.com/v4/latest/${currency_code}`;
+
+  superagent.get(url)
+    .then(results => {
+      let exchange_rates = Object.entries(results.body.rates);
+      res.render('countrydetails.ejs', {country: req.body, rates: exchange_rates});
+    })
+    .catch(err => errorHandler(err, req, res));
 }
 
 function saveCountry (req, res) {
