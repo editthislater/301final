@@ -1,0 +1,32 @@
+.countrybutton {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #002022ab;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  color: #eee;
+  margin: .25rem .25rem;
+}
+
+.countrybutton:hover {
+  background-color: #eee;
+  color: #002022ab;
+  cursor: pointer;
+  box-shadow: 2px #111;
+}
+
+.countrybutton:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.countrybutton img {
+  max-width: 3rem;
+}
+
+.countrybutton p {
+  padding: .25rem .25rem;
+  font-size: 1.5rem;
+}

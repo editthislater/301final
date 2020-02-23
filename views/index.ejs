@@ -4,99 +4,228 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
-  <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/state.css">
-  <link rel="stylesheet" href="css/theme.css">
 </head>
-<body class="idxbody">
+<body>
+  <header>
+    <a href="/">
+      <h1 id="logo">xPatriate</h1>
+    </a>
+  </header>
+   
+  <main>
+    <nav>
+      <button>Search for Country</button>
+      <button>Filter by Region</button>
+    </nav>
 
-  <section class="headerdiv">
-    <h1 id="logo">xPatriate</h1>
-  </section>
-
-  <main class="idxmain">
-
-    <section id="searchform">
-      <h1>Search form goes here</h1>
-      <form id="newsearch" method="post" action="/searchspecific">
-        <fieldset>
-<!-- begin country search form -->
+    <!-- <section id="searchform" class="form"> -->
+      <form id="newsearch" class="form" method="post" action="/searchspecific">
           <input id="searchbar" type="text" name ="search" placeholder="Search for a Specific Country"/>
-<!-- end country search form -->
-<!-- begin region dropdown -->
-          <div class="dropdown">
-            <button class="dropbtn">Find Countries by Region
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </div>
-          <br>
-<!-- end region dropdown -->
-<!-- begin subregion dropdown -->
-          <div class="dropdown">
-            <button class="dropbtn">Find Countries by Subregion
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </div>
-<!-- end subregion dropdown -->
-<!-- begin languages dropdown -->
-          <div class="dropdown">
-            <button class="dropbtn">Find Countries by National Language
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
-            </div>
-          </div>
-<!-- end languages dropdown -->
-
           <button>Search</button>
-        </legend>
-        </fieldset>
       </form>
-    </section>
+    <!-- </section> -->
+
+    <!-- <section class="form"> -->
+      <form id="regionform" class="form" method="post" action="/filtersearch">
+        <label for="region">Region</label>
+
+        <select id="region" name="region">
+          <option class="default" value="default">Select Region</option>
+          <option class="africa" value="africa">Africa</option>
+          <option class="americas" value="americas">Americas</option>
+          <option class="asia" value="asia">Asia</option>
+          <option class="europe" value="europe">Europe</option>
+          <option class="oceania" value="oceania">Oceania</option>
+        </select>
+        <label for="subregion">Subregion</label>
+
+        <select id="subregion-dummy">
+          <option value="dummy"></option>
+        </select>
+
+        <select id="subregion-africa" class="subregion" name="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="eastern africa">Eastern Africa</option>
+          <option value="middle africa">Middle Africa</option>
+          <option value="northern africa">Northern Africa</option>
+          <option value="southern africa">Southern Africa</option>
+          <option value="western africa">Western Africa</option>
+        </select>
+
+        <select id="subregion-americas" class="subregion" name="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="central america">Central America</option>
+          <option value="northern america">Northern America</option>
+          <option value="caribbean">Caribbean</option>
+          <option value="south america">South America</option>
+        </select>
+
+        <select id="subregion-asia" class="subregion" name="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="central asia">Central Asia</option>
+          <option value="eastern asia">Eastern Asia</option>
+          <option value="south-eastern asia">South-Eastern Asia</option>
+          <option value="southern asia">Southern Asia</option>
+          <option value="western asia">Western Asia</option>
+        </select>
+
+        <select id="subregion-europe" class="subregion" name="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="eastern europe">Eastern Europe</option>
+          <option value="northern europe">Northern Europe</option>
+          <option value="southern europe">Southern Europe</option>
+          <option value="western europe">Western Europe</option>
+        </select>
+
+        <select id="subregion-oceania" class="subregion" name="subregion">
+          <option class="default" value="default">Select Subregion</option>
+          <option value="australia and new zealand">Australia and New Zealand</option>
+          <option value="melanesia">Melanesia</option>
+          <option value="micronesia">Micronesia</option>
+          <option value="polynesia">Polynesia</option>
+        </select>
+
+        
+        <label for="language">Language</label>
+    
+        <select id="language-dummy">
+            <option value="dummy"></option>
+        </select>
+
+        <select id="language-africa" class="language" name="language">
+          <option class="default" value="default">Select Language</option>
+          <option value="afrikaans">Afrikaans</option>
+          <option value="amharic">Amharic</option>
+          <option value="arabic">Arabic</option>
+          <option value="chichewa">Chichewa</option>
+          <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="fula">Fula</option>
+          <option value="kinyarwanda">Kinyarwanda</option>
+          <option value="kirundi">Kirundi</option>
+          <option value="kongo">Kongo</option>
+          <option value="lingala">Lingala</option>
+          <option value="luba-katanga">Luba-Katanga</option>
+          <option value="malagasy">Malagasy</option>
+          <option value="northern ndebele">Ndebele - Northern</option>
+          <option value="southern ndebele">Ndebele - Southern</option>
+          <option value="portuguese">Portuguese</option>
+          <option value="sango">Sango</option>
+          <option value="shona">Shona</option>
+          <option value="somali">Somali</option>
+          <option value="spanish">Spanish</option>
+          <option value="southern sotho">Southern Sotho</option>
+          <option value="swahili">Swahili</option>
+          <option value="swati">Swati</option>
+          <option value="tigrinya">Tigrinya</option>
+          <option value="tsonga">Tsonga</option>
+          <option value="tswana">Tswana</option>
+          <option value="venda">Venda</option>
+          <option value="xhosa">Xhosa</option>
+          <option value="Zulu">Zulu</option>
+        </select>
+
+        <select id="language-americas" class="language" name="language">
+          <option class="default" value="default">Select Language</option>
+          <option value="english">English</option>
+        </select>
+
+        <select id="language-asia" class="language" name="language">
+          <option class="default" value="default">Select Language</option>
+          <option value="arabic">Arabic</option>
+          <option value="armenian">Armenian</option>
+          <option value="azerbaijani">Azerbaijani</option>
+          <option value="bengali">Bengali</option>
+          <option value="burmese">Burmese</option>
+          <option value="chinese">Chinese</option>
+          <option value="divehi">Divehi</option>
+          <option value="dzongkha">Dzongkha</option>
+          <option value="english">English</option>
+          <option value="farsi">Farsi</option>
+          <option value="french">French</option>
+          <option value="georgian">Georgian</option>
+          <option value="hebrew">Hebrew</option>
+          <option value="hindi">Hindi</option>
+          <option value="indonesian">Indonesian</option>
+          <option value="japanese">Japanese</option>
+          <option value="kazakh">Kazakh</option>
+          <option value="khmer">Khmer</option>
+          <option value="korean">Korean</option>
+          <option value="kurdish">Kurdish</option>
+          <option value="kyrgyz">Kyrgyz</option>
+          <option value="lao">Lao</option>
+          <option value="malay">Malay</option>
+          <option value="malaysian">Malaysian</option>
+          <option value="mongolian">Mongolian</option>
+          <option value="nepali">Nepali</option>
+          <option value="pashto">Pashto</option>
+          <option value="portuguese">Portuguese</option>
+          <option value="russian">Russian</option>
+          <option value="sinhalese">Sinhalese</option>
+          <option value="tajik">Tajik</option>
+          <option value="tamil">Tamil</option>
+          <option value="thai">Thai</option>
+          <option value="turkish">Turkish</option>
+          <option value="turkmen">Turkmen</option>
+          <option value="uzbek">Uzbek</option>
+          <option value="urdu">Urdu</option>
+          <option value="vietnamese">Vietnamese</option>
+
+        </select>
+
+        <select id="language-europe" class="language" name="language">
+          <option class="default" value="default">Select Language</option>
+          <option value="albanian">Albanian</option>
+        </select>
+
+        <select id="language-oceania" class="language" name="language">
+          <option class="default" value="default">Select Language</option>
+          <option value="bislama">Bislama</option>
+        </select>
+
+        <button>Search</button>
+
+      </form>
+    <!-- </section> -->
+
+
+
+
+
 
     <section id="savedlist">
-      <h1>Saved Countries will live here</h1>
-      <ul id="temp">
-        <% countries.forEach(country => { %>
-          <section class="country">
-            <li class="flagimg"></li>
-              sampleflag
-            </li>
-            <li class="countryname">
-              <%- country.name %>
-            </li>
-            <li class="sampledata">
-              sampledata
-            </li>
-            <li class="sampledata">
-              sampledata
-            </li>
-            <li class="sampledata">
-              sampledata
-            </li>
-          </section>
-        <% }) %>
-      </ul>
+      <h1>Your Saved Countries</h1>
+      <!-- <ul id="temp"> -->
+        <section>
+          <% countries.forEach(country => { %>
+            <form action="/details" method="post">
+              <input type="hidden" name="name" value="<%- country.name %>">
+              <input type="hidden" name="language" value="<%- country.language %>">
+              <input type="hidden" name="region" value="<%- country.region %>">
+              <input type="hidden" name="subregion" value="<%- country.subregion %>">
+              <input type="hidden" name="capital" value="<%- country.capital %>">
+              <input type="hidden" name="currency" value="<%- country.currency %>">
+              <input type="hidden" name="flag_url" value="<%- country.flag_url %>">
+              <input type="hidden" name="currency_symbol" value="<%- country.currency_symbol %>">
+              <button type="submit" class="countrybutton">
+                <img class="flagimg" src="<%- country.flag_url %>"/>
+                <p class="countryname">
+                  <%- country.name %>
+                </p>
+              </button>
+            </form>
+          <% }) %>
+        </section>
+      <!-- </ul> -->
     </section>
 
   </main>
 
-  <section class="footerdiv">
+  <footer>
     <p>&copy; 2020 Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir</p>
     <a href="/about" id="aboutlink">About Our Team</a>
-  </section>
+  </footer>
   <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="js/app.js"></script>
 </body>
