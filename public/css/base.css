@@ -8,3 +8,8 @@ header{
 header h1{
   font-family: 'Montserrat Subrayada';
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
