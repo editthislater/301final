@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
   <title>Country Details</title>
 </head>
 <body>
   <header>
-
+    <h1 id="logo">xPatriate</h1>
   </header>
-  <main>
-    <h1>Country Details</h1>
-    <section>
-      <img src="<%- country.flag_url %>" alt="<%- country.name %> flag"/>
+  <main id="detailsmain">
+    <h2>Country Details</h2>
+    <section id="details">
+      <img  src="<%- country.flag_url %>" alt="<%- country.name %> flag"/>
       <h2><%- country.name %></h2>
       <p>Languages: <%- country.language %></p>
       <p>Region: <%- country.region %></p>
@@ -34,7 +35,8 @@
     </section>
   </main>
   <footer>
-
+    <p>&copy; 2020 Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir</p>
+    <a href="/about" id="aboutlink">About Our Team</a>
   </footer>
 </body>
 </html>
