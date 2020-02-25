@@ -44,12 +44,10 @@ function homePage (req, res){
 // Query API by name
 function searchCountry (req, res) {
   let country = req.body.search;
-  console.log('country search:', country);
   let url = `https://restcountries.eu/rest/v2/name/${country}`;
 
   superagent.get(url)
     .then(results => {
-      console.log('restcountry results:', results.body);
       let countryArr = results.body.map(country => {
         return new Country(country);
       });
@@ -72,7 +70,6 @@ function filterSearch (req, res) {
   superagent.get(url)
     .then(results => {
       let countryArr = filterSubregion(results.body, subregion, language);
-      console.log(countryArr);
       let constructedCountries = countryArr.map(country => {
         return new Country(country);
       });
@@ -89,7 +86,14 @@ function displayDetails (req, res){
       let exchange_rates = Object.entries(results.body.rates);
       res.render('countrydetails.ejs', {country: req.body, rates: exchange_rates});
     })
-    .catch(err => errorHandler(err, req, res));
+    .catch(err => {
+      let error_type = err.response.body.error_type || 'no error type';
+      if (/unsupported_code/gm.test(error_type)) {
+        res.render('countrydetails.ejs', {country: req.body, rates: []});
+      } else {
+        errorHandler(err, req, res);
+      }
+    });
 }
 
 function saveCountry (req, res) {
@@ -138,24 +142,17 @@ function filterSubregion (results, subregion, language) {
   let subregionFilterArr =  results.filter(country => {
     return country.subregion.toLowerCase() === subregion.toLowerCase();
   });
-  console.log('subregionArr:', subregionFilterArr);
   return filterLanguage(subregionFilterArr, language);
 }
 
 function filterLanguage(arr, language) {
-  console.log('Inside filterLanguage');
-  console.log('filterLanguage arr:', arr);
   return arr.filter(country => {
     let languageMatch = false;
     country.languages.forEach(lang => {
-      console.log('forEach start');
       if (lang.name.toLowerCase() === language.toLowerCase()) {
-        console.log('Should be TRUE');
         languageMatch = true;
       }
-      console.log('forEach end');
     });
-    console.log('languageMatch:', languageMatch);
     return languageMatch;
   });
 }
