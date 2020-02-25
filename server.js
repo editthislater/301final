@@ -26,6 +26,7 @@ app.post('/details', displayDetails);
 app.get('/error', errorHandler);
 app.post('/', saveCountry);
 app.get('/aboutus', aboutus);
+app.post('/delete', deleteCountry);
 
 // Route Callbacks
 
@@ -121,6 +122,17 @@ function saveCountry (req, res) {
       homePage(req, res);
     })
     .catch(error => errorHandler(error, req, res));
+}
+
+function deleteCountry (req, res) {
+  let name = req.body.name;
+  let SQL = `DELETE FROM countries WHERE name=$1`;
+  let values = [name];
+  client.query(SQL, values)
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch(err => errorHandler(err, req, res));
 }
 
 
