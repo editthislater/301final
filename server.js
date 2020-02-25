@@ -97,7 +97,6 @@ function displayDetails (req, res){
 }
 
 function saveCountry (req, res) {
-  // console.log('res: ', res.body);
   console.log('req: ', req.body);
   let name = req.body.name;
   let language = req.body.language;
@@ -107,15 +106,16 @@ function saveCountry (req, res) {
   let currency = req.body.currency;
   let flag_url = req.body.flag_url;
 
-
-  let SQL = `INSERT INTO countries (name, language, region, subregion, capital, currency, flag_url) VALUES ($1, $2, $3, $4, $5, $6, $7);`;
-  let VALUES = [name, language, region, subregion, capital, currency, flag_url];
-  console.log('SQL stuff:', SQL);
-  console.log('values:', VALUES);
-  client.query(SQL, VALUES);
-  client.query(`SELECT * FROM countries`)
+  let SQL1 = `SELECT name FROM countries WHERE name=$1`;
+  let values = [name];
+  client.query(SQL1, values)
     .then(result => {
-      res.render('index.ejs', {countries: result.rows});
+      if (result.rowCount === 0) {
+        let SQL = `INSERT INTO countries (name, language, region, subregion, capital, currency, flag_url) VALUES ($1, $2, $3, $4, $5, $6, $7);`;
+        let VALUES = [name, language, region, subregion, capital, currency, flag_url];
+        client.query(SQL, VALUES);
+      }
+      homePage(req, res);
     })
     .catch(error => errorHandler(error, req, res));
 }
