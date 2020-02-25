@@ -3,12 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
   <title>Error</title>
 </head>
 <body>
-  <section id="errormsg">
-    <h1>An Error Has Occurred</h1>
-    <h3>Try searching again!<br>Be sure to check your spelling<br>& that you are searching for a valid country</h3>
-  </section>
+  <header>
+    <%- include('header.ejs') %>
+  </header>
+  <main id="errormain">
+    <section id="errormsg">
+      <h1>An Error Has Occurred</h1>
+      <h3>Try searching again!</h3>
+      <h3>Be sure to check your spelling</h3>
+      <h3>& that you are searching for a valid country</h3>
+      <a href="/"><button>Back</button></a>
+    </section>
+  </main>
 </body>
+<footer>
+  <%- include('footer.ejs') %>
+</footer>
 </html>

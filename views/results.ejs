@@ -8,12 +8,12 @@
 </head>
 <body>
   <header>
-    <a href="/">
-      <h1 id="logo">xPatriate</h1>
-    </a>  </header>
+    <%- include('header.ejs') %>
+  </header>
   <main>
     <h2>Search Results</h2>
     <section id="results">
+      <% if (countries.length > 0) { %>
       <% countries.forEach(country => { %>
         <section class="result">
           <img src="<%- country.flag_url %>" alt="<%- country.name %> flag">
@@ -26,15 +26,20 @@
             <input type="hidden" name="currency" value="<%- country.currency %>">
             <input type="hidden" name="flag_url" value="<%- country.flag_url %>">
             <input type="hidden" name="currency_symbol" value="<%- country.currency_symbol %>">
+            <input type="hidden" name="inDB" value="<%- false %>">
             <button><%- country.name %></button>
           </form>
         </section>
       <% }) %>
+      <% } else { %>
+        <ul>
+          <li id="nocountries">Oh no! It looks like none of the countries within the subregion you selected speak the language you chose.</li>
+        </ul>
+      <% } %>
     </section>
   </main>
   <footer>
-    <p>&copy; 2020 Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir</p>
-    <a href="/about" id="aboutlink">About Our Team</a>
+    <%- include('footer.ejs') %>
   </footer>
 </body>
 </html>

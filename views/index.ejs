@@ -8,15 +8,16 @@
 </head>
 <body>
   <header>
-    <a href="/">
+    <%- include('header.ejs') %>
+    <!-- <a href="/">
       <h1 id="logo">xPatriate</h1>
-    </a>
+    </a> -->
   </header>
    
   <main>
     <nav>
-      <button>Search for Country</button>
-      <button>Filter by Region</button>
+      <button id="country_search">Search for Country</button>
+      <button id="region_search">Filter by Region</button>
     </nav>
 
     <!-- <section id="searchform" class="form"> -->
@@ -128,7 +129,17 @@
 
         <select id="language-americas" class="language" name="language">
           <option class="default" value="default">Select Language</option>
+          <option value="aymara">Aymara</option>
+          <option value="dutch">Dutch</option>
           <option value="english">English</option>
+          <option value="french">French</option>
+          <option value="guarani">Guarani</option>
+          <option value="haitian">Haitian</option>
+          <option value="kalaallisut">Kalaallisut</option>
+          <option value="portuguese">Portuguese</option>
+          <option value="punjabi">Punjabi</option>
+          <option value="quechua">Quechua</option>
+          <option value="spanish">Spanish</option>
         </select>
 
         <select id="language-asia" class="language" name="language">
@@ -171,17 +182,66 @@
           <option value="uzbek">Uzbek</option>
           <option value="urdu">Urdu</option>
           <option value="vietnamese">Vietnamese</option>
-
         </select>
 
         <select id="language-europe" class="language" name="language">
           <option class="default" value="default">Select Language</option>
           <option value="albanian">Albanian</option>
+          <option value="armenian">Armenian</option>
+          <option value="belarusian">Belarusian</option>
+          <option value="bosnian">Bosnian</option>
+          <option value="bulgarian">Bulgarian</option>
+          <option value="catalan">Catalan</option>
+          <option value="croatian">Croatian</option>
+          <option value="czech">Czech</option>
+          <option value="danish">Danish</option>
+          <option value="dutch">Dutch</option>
+          <option value="english">English</option>
+          <option value="faroese">Faroese</option>
+          <option value="finnish">Finnish</option>
+          <option value="french">French</option>
+          <option value="german">German</option>
+          <option value="greek">Greek</option>
+          <option value="hungarian">Hungarian</option>
+          <option value="icelandic">Icelandic</option>
+          <option value="irish">Irish</option>
+          <option value="italian">Italian</option>
+          <option value="latin">Latin</option>
+          <option value="latvian">Latvian</option>
+          <option value="lithuanian">Lithuanian</option>
+          <option value="luxembourgish">Luxembourgish</option>
+          <option value="macedonian">Macedonian</option>
+          <option value="maltese">Maltese</option>
+          <option value="manx">Manx</option>
+          <option value="norwegian">Norwegian</option>
+          <option value="polish">Polish</option>
+          <option value="portuguese">Portuguese</option>
+          <option value="romanian">Romanian</option>
+          <option value="russian">Russian</option>
+          <option value="serbian">Serbian</option>
+          <option value="slovak">Slovak</option>
+          <option value="slovene">Slovene</option>
+          <option value="spanish">Spanish</option>
+          <option value="swedish">Swedish</option>
+          <option value="turkish">Turkish</option>
+          <option value="ukrainian">Ukrainian</option>
         </select>
 
         <select id="language-oceania" class="language" name="language">
           <option class="default" value="default">Select Language</option>
           <option value="bislama">Bislama</option>
+          <option value="chamorro">Chamorro</option>
+          <option value="english">English</option>
+          <option value="fijian">Fijian</option>
+          <option value="french">French</option>
+          <option value="hindi">Hindi</option>
+          <option value="maori">Maori</option>
+          <option value="marshallese">Marshallese</option>
+          <option value="nauruan">Nauruan</option>
+          <option value="samoan">Samoan</option>
+          <option value="spanish">Spanish</option>
+          <option value="tonga">Tonga</option>
+          <option value="urdu">Urdu</option>
         </select>
 
         <button>Search</button>
@@ -208,6 +268,7 @@
               <input type="hidden" name="currency" value="<%- country.currency %>">
               <input type="hidden" name="flag_url" value="<%- country.flag_url %>">
               <input type="hidden" name="currency_symbol" value="<%- country.currency_symbol %>">
+              <input type="hidden" name="inDB" value="<%- true %>">
               <button type="submit" class="countrybutton">
                 <img class="flagimg" src="<%- country.flag_url %>"/>
                 <p class="countryname">
@@ -223,8 +284,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2020 Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir</p>
-    <a href="/about" id="aboutlink">About Our Team</a>
+    <%- include('footer.ejs') %>
   </footer>
   <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="js/app.js"></script>

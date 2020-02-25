@@ -43,7 +43,8 @@ main nav {
   margin-top: .5rem;
 }
 
-nav button {
+nav button,
+a button {
   margin: 0 .5rem;
   width: 5rem;
   height: fit-content;
@@ -52,7 +53,8 @@ nav button {
   color: #eee;
 }
 
-nav button:hover {
+nav button:hover,
+a button:hover {
   background-color: #eee;
   color: #002022ab;
   cursor: pointer;
@@ -179,3 +181,28 @@ button {
   color: #002022ab;
 }
 
+#errormain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#errormsg {
+  background-color: rgba(238, 238, 238, 0.8);
+  padding: 1rem;
+  border-radius: .5rem;
+  text-align: center;
+}
+
+#errormsg h1 {
+  font-size: 1.5em;
+}
+
+#nocountries {
+  text-align: center;
+  padding: 1rem;
+}
+#errormsg a button{
+  width: 20%;
+  margin: auto;
+}

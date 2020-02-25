@@ -25,7 +25,8 @@ app.post('/filtersearch', filterSearch);
 app.post('/details', displayDetails);
 app.get('/error', errorHandler);
 app.post('/', saveCountry);
-
+app.get('/aboutus', aboutus);
+app.post('/delete', deleteCountry);
 
 // Route Callbacks
 
@@ -40,16 +41,17 @@ function homePage (req, res){
     // .catch(error => errorHandler(error));
     .catch(err => console.error(err));
 }
+function aboutus (req, res){
+  res.render('aboutus.ejs');
+}
 
 // Query API by name
 function searchCountry (req, res) {
   let country = req.body.search;
-  console.log('country search:', country);
   let url = `https://restcountries.eu/rest/v2/name/${country}`;
 
   superagent.get(url)
     .then(results => {
-      console.log('restcountry results:', results.body);
       let countryArr = results.body.map(country => {
         return new Country(country);
       });
@@ -72,7 +74,6 @@ function filterSearch (req, res) {
   superagent.get(url)
     .then(results => {
       let countryArr = filterSubregion(results.body, subregion, language);
-      console.log(countryArr);
       let constructedCountries = countryArr.map(country => {
         return new Country(country);
       });
@@ -89,11 +90,17 @@ function displayDetails (req, res){
       let exchange_rates = Object.entries(results.body.rates);
       res.render('countrydetails.ejs', {country: req.body, rates: exchange_rates});
     })
-    .catch(err => errorHandler(err, req, res));
+    .catch(err => {
+      let error_type = err.response.body.error_type || 'no error type';
+      if (/unsupported_code/gm.test(error_type)) {
+        res.render('countrydetails.ejs', {country: req.body, rates: []});
+      } else {
+        errorHandler(err, req, res);
+      }
+    });
 }
 
 function saveCountry (req, res) {
-  // console.log('res: ', res.body);
   console.log('req: ', req.body);
   let name = req.body.name;
   let language = req.body.language;
@@ -103,18 +110,45 @@ function saveCountry (req, res) {
   let currency = req.body.currency;
   let flag_url = req.body.flag_url;
 
-
-  let SQL = `INSERT INTO countries (name, language, region, subregion, capital, currency, flag_url) VALUES ($1, $2, $3, $4, $5, $6, $7);`;
-  let VALUES = [name, language, region, subregion, capital, currency, flag_url];
-  console.log('SQL stuff:', SQL);
-  console.log('values:', VALUES);
-  client.query(SQL, VALUES);
-  client.query(`SELECT * FROM countries`)
+  let SQL1 = `SELECT name FROM countries WHERE name=$1`;
+  let values = [name];
+  client.query(SQL1, values)
     .then(result => {
-      res.render('index.ejs', {countries: result.rows});
+      if (result.rowCount === 0) {
+        let SQL = `INSERT INTO countries (name, language, region, subregion, capital, currency, flag_url) VALUES ($1, $2, $3, $4, $5, $6, $7);`;
+        let VALUES = [name, language, region, subregion, capital, currency, flag_url];
+        client.query(SQL, VALUES);
+      }
+      homePage(req, res);
     })
     .catch(error => errorHandler(error, req, res));
 }
+
+function deleteCountry (req, res) {
+  let name = req.body.name;
+  let SQL = `DELETE FROM countries WHERE name=$1`;
+  let values = [name];
+  client.query(SQL, values)
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch(err => errorHandler(err, req, res));
+}
+
+// advisorydata.push(advise.data.DZ.advisory.score);
+// advisorydata.push(advise.data.DZ.advisory.message);
+
+// function travelAdvisory (req, res) {
+//   let country_code = req.body.alpha2Code;
+//   let url = `https://www.travel-advisory.info/api?countrycode=${country_code}`;
+
+//   superagent.get(url)
+//     .then(results => {
+//       console.log(`results.data.${country_code}.score`);
+//       console.log(`results.data.${country_code}.message`);
+//     })
+//     .catch(err => errorHandler(err, req, res));
+// }
 
 
 // Country constructor function
@@ -127,6 +161,7 @@ function Country (data) {
   this.currency = data.currencies[0].code;
   this.currency_symbol = data.currencies[0].symbol;
   this.flag_url = data.flag.replace('https', 'http');
+  this.alpha2Code = data.alpha2Code;
 }
 
 // Helper functions
@@ -138,24 +173,17 @@ function filterSubregion (results, subregion, language) {
   let subregionFilterArr =  results.filter(country => {
     return country.subregion.toLowerCase() === subregion.toLowerCase();
   });
-  console.log('subregionArr:', subregionFilterArr);
   return filterLanguage(subregionFilterArr, language);
 }
 
 function filterLanguage(arr, language) {
-  console.log('Inside filterLanguage');
-  console.log('filterLanguage arr:', arr);
   return arr.filter(country => {
     let languageMatch = false;
     country.languages.forEach(lang => {
-      console.log('forEach start');
       if (lang.name.toLowerCase() === language.toLowerCase()) {
-        console.log('Should be TRUE');
         languageMatch = true;
       }
-      console.log('forEach end');
     });
-    console.log('languageMatch:', languageMatch);
     return languageMatch;
   });
 }
