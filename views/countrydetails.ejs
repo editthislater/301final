@@ -8,9 +8,8 @@
 </head>
 <body>
   <header>
-    <a href="/">
-      <h1 id="logo">xPatriate</h1>
-    </a>  </header>
+    <%- include('header.ejs') %>
+  </header>
   <main id="detailsmain">
     <h2>Country Details</h2>
     <section id="details">
@@ -22,12 +21,19 @@
       <p>Capital City: <%- country.capital %></p>
       <p>Currency: <%- country.currency %></p>
       <p>Exchange Rates:</p>
+
+      <% if (rates.length > 0) { %>
       <ul id="currency_rates">
         <% rates.forEach(rate => { %>
           <li>
            <%- `${rate[0]}: ${rate[1]}` %>
           </li>
         <% }) %>
+        <% } else { %>
+          <ul id="currency_rates">
+            <li>No Exchange Data Available</li>
+          </ul>
+          <% } %>
       </ul>
       <form action="/" method="post">
         <input type="hidden" name="name" value="<%- country.name %>">
@@ -43,8 +49,7 @@
     </section>
   </main>
   <footer>
-    <p>&copy; 2020 Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir</p>
-    <a href="/about" id="aboutlink">About Our Team</a>
+    <%- include('footer.ejs') %>
   </footer>
 </body>
 </html>
