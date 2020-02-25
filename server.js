@@ -135,6 +135,21 @@ function deleteCountry (req, res) {
     .catch(err => errorHandler(err, req, res));
 }
 
+// advisorydata.push(advise.data.DZ.advisory.score);
+// advisorydata.push(advise.data.DZ.advisory.message);
+
+// function travelAdvisory (req, res) {
+//   let country_code = req.body.alpha2Code;
+//   let url = `https://www.travel-advisory.info/api?countrycode=${country_code}`;
+
+//   superagent.get(url)
+//     .then(results => {
+//       console.log(`results.data.${country_code}.score`);
+//       console.log(`results.data.${country_code}.message`);
+//     })
+//     .catch(err => errorHandler(err, req, res));
+// }
+
 
 // Country constructor function
 function Country (data) {
@@ -146,6 +161,7 @@ function Country (data) {
   this.currency = data.currencies[0].code;
   this.currency_symbol = data.currencies[0].symbol;
   this.flag_url = data.flag.replace('https', 'http');
+  this.alpha2Code = data.alpha2Code;
 }
 
 // Helper functions
