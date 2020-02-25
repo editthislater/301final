@@ -19,6 +19,7 @@
 $(document).ready(function() {
   $('select.subregion').hide();
   $('select.language').hide();
+  $('#regionform').hide();
   $('select#region').on('change', function() {
     if ($(this).val() === 'africa') {
       $('select.subregion').hide();
@@ -68,4 +69,15 @@ $(document).ready(function() {
   //   $('.subregion').hide();
   //   $('#'+$(this).val()).show();
   // });
+});
+
+// search option buttons toggle display of forms
+$('#country_search').on('click', function() {
+  $('#newsearch').show();
+  $('#regionform').hide();
+});
+
+$('#region_search').on('click', function() {
+  $('#newsearch').hide();
+  $('#regionform').show();
 });
