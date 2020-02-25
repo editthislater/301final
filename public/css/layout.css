@@ -43,7 +43,8 @@ main nav {
   margin-top: .5rem;
 }
 
-nav button {
+nav button,
+a button {
   margin: 0 .5rem;
   width: 5rem;
   height: fit-content;
@@ -52,7 +53,8 @@ nav button {
   color: #eee;
 }
 
-nav button:hover {
+nav button:hover,
+a button:hover {
   background-color: #eee;
   color: #002022ab;
   cursor: pointer;
@@ -199,4 +201,8 @@ button {
 #nocountries {
   text-align: center;
   padding: 1rem;
+}
+#errormsg a button{
+  width: 20%;
+  margin: auto;
 }
