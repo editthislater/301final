@@ -25,7 +25,7 @@ app.post('/filtersearch', filterSearch);
 app.post('/details', displayDetails);
 app.get('/error', errorHandler);
 app.post('/', saveCountry);
-
+app.get('/aboutus', aboutus);
 
 // Route Callbacks
 
@@ -39,6 +39,9 @@ function homePage (req, res){
     })
     // .catch(error => errorHandler(error));
     .catch(err => console.error(err));
+}
+function aboutus (req, res){
+  res.render('aboutus.ejs');
 }
 
 // Query API by name
