@@ -8,9 +8,10 @@
 </head>
 <body>
   <header>
-    <a href="/">
+    <%- include('header.ejs') %>
+    <!-- <a href="/">
       <h1 id="logo">xPatriate</h1>
-    </a>
+    </a> -->
   </header>
    
   <main>
@@ -282,8 +283,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2020 Sue Duclos, Clayton Jones, Cas Olejniczak, Eyob Tamir</p>
-    <a href="/about" id="aboutlink">About Our Team</a>
+    <%- include('footer.ejs') %>
   </footer>
   <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="js/app.js"></script>
