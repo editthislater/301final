@@ -36,6 +36,7 @@ function homePage (req, res){
 
   client.query(SQL)
     .then(results => {
+      console.log('results.rows:', results.rows);
       res.render('index.ejs', {countries: results.rows});
     })
     // .catch(error => errorHandler(error));
@@ -81,24 +82,50 @@ function filterSearch (req, res) {
     });
 }
 
-function displayDetails (req, res){
+async function displayDetails (req, res){
   let currency_code = req.body.currency;
+  let alpha2Code = req.body.alpha2Code;
+  console.log('A2C:', alpha2Code);
+
+  let exchange_rates = await getExchangeRates(currency_code);
+  let travel_advisory = await getTravelAdvisory(alpha2Code);
+  console.log('TA:', travel_advisory);
+
+  if (exchange_rates === 'unsupported_code') {
+    res.render('countrydetails.ejs', {country: req.body, rates: [], advisory: travel_advisory});
+  } else {
+    res.render('countrydetails.ejs', {country: req.body, rates: exchange_rates, advisory: travel_advisory});
+  }
+}
+
+function getExchangeRates(currency_code) {
   let url = `https://api.exchangerate-api.com/v4/latest/${currency_code}`;
 
-  superagent.get(url)
+  return superagent.get(url)
     .then(results => {
       let exchange_rates = Object.entries(results.body.rates);
-      res.render('countrydetails.ejs', {country: req.body, rates: exchange_rates});
+      return exchange_rates;
     })
     .catch(err => {
       let error_type = err.response.body.error_type || 'no error type';
-      if (/unsupported_code/gm.test(error_type)) {
-        res.render('countrydetails.ejs', {country: req.body, rates: []});
-      } else {
-        errorHandler(err, req, res);
-      }
+      return error_type;
     });
 }
+
+async function getTravelAdvisory(alpha2Code) {
+  try {
+    let url = `https://www.travel-advisory.info/api?countrycode=${alpha2Code}`;
+  
+    let results =  await superagent.get(url);
+  
+    return {score: results.body.data[alpha2Code].advisory.score, message: results.body.data[alpha2Code].advisory.message};
+  }
+  catch {
+    return 'not found';
+  }
+}
+
+
 
 function saveCountry (req, res) {
   console.log('req: ', req.body);
@@ -109,14 +136,15 @@ function saveCountry (req, res) {
   let capital = req.body.capital;
   let currency = req.body.currency;
   let flag_url = req.body.flag_url;
+  let alpha2Code = req.body.alpha2Code;
 
   let SQL1 = `SELECT name FROM countries WHERE name=$1`;
   let values = [name];
   client.query(SQL1, values)
     .then(result => {
       if (result.rowCount === 0) {
-        let SQL = `INSERT INTO countries (name, language, region, subregion, capital, currency, flag_url) VALUES ($1, $2, $3, $4, $5, $6, $7);`;
-        let VALUES = [name, language, region, subregion, capital, currency, flag_url];
+        let SQL = `INSERT INTO countries (name, language, region, subregion, capital, currency, flag_url, alpha2Code) VALUES ($1, $2, $3, $4, $5, $6, $7, $8);`;
+        let VALUES = [name, language, region, subregion, capital, currency, flag_url, alpha2Code];
         client.query(SQL, VALUES);
       }
       homePage(req, res);
@@ -134,21 +162,6 @@ function deleteCountry (req, res) {
     })
     .catch(err => errorHandler(err, req, res));
 }
-
-// advisorydata.push(advise.data.DZ.advisory.score);
-// advisorydata.push(advise.data.DZ.advisory.message);
-
-// function travelAdvisory (req, res) {
-//   let country_code = req.body.alpha2Code;
-//   let url = `https://www.travel-advisory.info/api?countrycode=${country_code}`;
-
-//   superagent.get(url)
-//     .then(results => {
-//       console.log(`results.data.${country_code}.score`);
-//       console.log(`results.data.${country_code}.message`);
-//     })
-//     .catch(err => errorHandler(err, req, res));
-// }
 
 
 // Country constructor function

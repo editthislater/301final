@@ -19,6 +19,15 @@
       <p>Region: <%- country.region %></p>
       <p>Subregion: <%- country.subregion %></p>
       <p>Capital City: <%- country.capital %></p>
+      <p>Travel Advisory:</p>
+      <ul>
+        <% if (advisory === 'not found') { %>
+          <li>No advisory available.</li>
+        <% } else { %>
+          <li>Score: <%- advisory.score %> out of 5</li>
+          <li><%- advisory.message %></li>
+        <% } %>
+      </ul>
       <p>Currency: <%- country.currency %></p>
       <p>Exchange Rates:</p>
 
@@ -57,6 +66,8 @@
           <input type="hidden" name="currency" value="<%- country.currency %>">
           <input type="hidden" name="flag_url" value="<%- country.flag_url %>">
           <input type="hidden" name="currency_symbol" value="<%- country.currency_symbol %>">
+          <input type="hidden" name="alpha2Code" value="<%- country.alpha2Code %>">
+
         <button id="savebutton" type="submit">Save this Country</button>
         </form>
       <% } %>
