@@ -13,9 +13,12 @@ a {
   text-decoration: none;
   color: inherit;
 }
+#details ul {
+  color: #eee;
+}
 
-ul {
-  max-height: 5rem;
+#currency_rates {
+  min-height: 3rem;
   overflow: scroll;
   color: #eee;
   border: 1px solid #eee;
