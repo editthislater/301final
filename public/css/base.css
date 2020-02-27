@@ -1,26 +1,23 @@
-header{
+header {
   background-color: #002022ab;
   color: #eee;
   width: 100%;
   /* margin: 1rem; */
   max-height: 20vh;
 }
-header h1{
+
+header h1 {
   font-family: 'Montserrat Subrayada';
+}
+
+#logo {
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
 }
 
 a {
   text-decoration: none;
   color: inherit;
 }
-#details ul {
-  color: #eee;
-}
 
-#currency_rates {
-  min-height: 3rem;
-  overflow: scroll;
-  color: #eee;
-  border: 1px solid #eee;
-  padding: .2rem;
-}

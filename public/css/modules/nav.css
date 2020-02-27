@@ -1,0 +1,23 @@
+main nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: .5rem;
+}
+
+nav button,
+a button {
+  margin: 0 .5rem;
+  width: 5rem;
+  height: fit-content;
+  border-radius: .5rem;
+  background-color: #002022ab;
+  color: #eee;
+}
+
+nav button:hover,
+a button:hover {
+  background-color: #eee;
+  color: #002022ab;
+  cursor: pointer;
+}

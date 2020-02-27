@@ -1,12 +1,6 @@
-#logo {
-  font-size: 3em;
-  font-weight: bold;
-  text-align: center;
-}
-
 #aboutlink {
+  color: rgb(103, 168, 157);
   text-decoration: none;
-  color: #111;
 }
 
 #aboutlink:after {

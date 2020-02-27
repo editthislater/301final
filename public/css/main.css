@@ -3,9 +3,11 @@
 @import url('base.css');
 @import url('layout.css');
 @import url('theme.css');
-@import url('state.css');
+@import url('modules/errors.css');
 @import url('modules/country.css');
 @import url('modules/result.css');
+@import url('modules/nav.css');
+@import url('modules/bio.css');
 
 body, html {
   width: 100vw;
@@ -15,8 +17,6 @@ body, html {
 body {
   /* The image used */
   background-image: url("/assets/maps.jpeg");
-
-  /* Full height */
 
   /* Center and scale the image nicely */
   background-position: center;

@@ -10,54 +10,18 @@ main {
   width: 50%;
 }
 
-main #results {
-  width: 90%;
-  background-color: #002022ab;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin: auto;
-  max-height: 72vh;
-  overflow: scroll;
-}
 
 main h2 {
   text-align: center;
   color: #eee;
   width: 60%;
   margin: .75rem auto;
-
 }
 
 body .form,
 #savedlist {
   margin-top: 1rem;
   padding: .5rem 0;
-}
-
-main nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: .5rem;
-}
-
-nav button,
-a button {
-  margin: 0 .5rem;
-  width: 5rem;
-  height: fit-content;
-  border-radius: .5rem;
-  background-color: #002022ab;
-  color: #eee;
-}
-
-nav button:hover,
-a button:hover {
-  background-color: #eee;
-  color: #002022ab;
-  cursor: pointer;
 }
 
 .form {
@@ -132,81 +96,4 @@ body footer {
 
 button {
   display: block;
-}
-
-/* css for detail page */
-#detailsmain{
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-}
-#detailsmain h1{
-  color: #eee;
-  
-}
-#details{
-  background-color:  #002022ab;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: .5rem;
-  max-height: 64vh;
-  overflow: scroll;
-
-
-}
-#details img{
-  max-width: 45%;
- 
-}
-#details h2{
-  font-size: 2rem;
-  margin: .5rem auto;
-}
-#details p{
-  color: #eee;
-  margin: .3rem 0;
-}
-#savebutton{
-  height: fit-content;
-  margin-top: .5rem;
-  background-color: #002022ab;
-  color: #eee;
-  border-radius: .5rem;
-}
-#savebutton:hover {
-  cursor: pointer;
-  background-color: #eee;
-  color: #002022ab;
-}
-
-#errormain {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#errormsg {
-  background-color: rgba(238, 238, 238, 0.8);
-  padding: 1rem;
-  border-radius: .5rem;
-  text-align: center;
-}
-
-#errormsg h1 {
-  font-size: 1.5em;
-}
-
-#nocountries {
-  text-align: center;
-  padding: 1rem;
-  color: #eee;
-}
-#errormsg a button{
-  width: 20%;
-  margin: auto;
 }
