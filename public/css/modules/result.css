@@ -1,3 +1,5 @@
+/* styling for list of results */
+
 .result {
   display: flex;
   flex-direction: column;
@@ -28,3 +30,16 @@
   color: #002022ab;
 
 }
+
+main #results {
+  width: 90%;
+  background-color: #002022ab;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+  max-height: 72vh;
+  overflow: scroll;
+}
+

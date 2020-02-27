@@ -1,0 +1,26 @@
+#errormain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#errormsg {
+  background-color: rgba(238, 238, 238, 0.8);
+  padding: 1rem;
+  border-radius: .5rem;
+  text-align: center;
+}
+
+#errormsg h1 {
+  font-size: 1.5em;
+}
+
+#nocountries {
+  text-align: center;
+  padding: 1rem;
+  color: #eee;
+}
+#errormsg a button {
+  width: 20%;
+  margin: auto;
+}
