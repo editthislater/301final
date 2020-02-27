@@ -85,16 +85,21 @@ function filterSearch (req, res) {
 async function displayDetails (req, res){
   let currency_code = req.body.currency;
   let alpha2Code = req.body.alpha2Code;
-  console.log('A2C:', alpha2Code);
+  let country = req.body.name;
+  if (country === 'United Kingdom of Great Britain and Northern Ireland') {
+    country = 'United Kingdom';
+  }
+
+  let countryForURL = country.split(' ').join('%20');
+  let visaURL = `https://visadb.io/search/Visas/Live-Abroad/United-States/${countryForURL}/en`
 
   let exchange_rates = await getExchangeRates(currency_code);
   let travel_advisory = await getTravelAdvisory(alpha2Code);
-  console.log('TA:', travel_advisory);
 
   if (exchange_rates === 'unsupported_code') {
-    res.render('countrydetails.ejs', {country: req.body, rates: [], advisory: travel_advisory});
+    res.render('countrydetails.ejs', {country: req.body, rates: [], advisory: travel_advisory, visaURL: visaURL});
   } else {
-    res.render('countrydetails.ejs', {country: req.body, rates: exchange_rates, advisory: travel_advisory});
+    res.render('countrydetails.ejs', {country: req.body, rates: exchange_rates, advisory: travel_advisory, visaURL: visaURL});
   }
 }
 
