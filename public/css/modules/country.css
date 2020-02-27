@@ -1,3 +1,5 @@
+/* styling for country cards displayed on index and results list */
+
 .countrybutton {
   width: fit-content;
   display: flex;
@@ -29,4 +31,78 @@
 .countrybutton p {
   padding: .25rem .25rem;
   font-size: 1.5rem;
+}
+
+/* styling for country details */
+
+#detailsmain {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+#detailsmain h1 {
+  color: #eee;
+  
+}
+
+#details {
+  background-color: #002022ab;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: .5rem;
+  max-height: 64vh;
+  overflow: scroll;
+}
+
+#details img {
+  max-width: 45%;
+}
+
+#details h2 {
+  font-size: 2rem;
+  margin: .5rem auto;
+}
+
+#details p {
+  color: #eee;
+  margin: .3rem 0;
+}
+
+#details ul {
+  color: #eee;
+}
+
+#details li {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-wrap: wrap;
+  margin: .3rem 0;
+}
+
+#currency_rates {
+  min-height: 3rem;
+  overflow: scroll;
+  color: #eee;
+  border: 1px solid #eee;
+  padding: .2rem;
+}
+
+#savebutton {
+  height: fit-content;
+  margin-top: .5rem;
+  background-color: #002022ab;
+  color: #eee;
+  border-radius: .5rem;
+}
+#savebutton:hover {
+  cursor: pointer;
+  background-color: #eee;
+  color: #002022ab;
 }

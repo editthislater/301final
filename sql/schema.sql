@@ -33,5 +33,6 @@ CREATE TABLE countries(
   subregion VARCHAR(255) NOT NULL,
   capital VARCHAR(255) NOT NULL,
   currency VARCHAR(255) NOT NULL,
-  flag_url VARCHAR(255) NOT NULL
+  flag_url VARCHAR(255) NOT NULL,
+  alpha2Code VARCHAR(2) NOT NULL
 );

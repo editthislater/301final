@@ -41,7 +41,7 @@
         </select>
         <label for="subregion">Subregion</label>
 
-        <select id="subregion-dummy">
+        <select id="subregion-dummy" >
           <option value="dummy"></option>
         </select>
 
@@ -269,6 +269,7 @@
               <input type="hidden" name="flag_url" value="<%- country.flag_url %>">
               <input type="hidden" name="currency_symbol" value="<%- country.currency_symbol %>">
               <input type="hidden" name="inDB" value="<%- true %>">
+              <input type="hidden" name="alpha2Code" value="<%- country.alpha2code %>">
               <button type="submit" class="countrybutton">
                 <img class="flagimg" src="<%- country.flag_url %>"/>
                 <p class="countryname">
@@ -286,7 +287,7 @@
   <footer>
     <%- include('footer.ejs') %>
   </footer>
-  <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

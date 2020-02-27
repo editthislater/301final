@@ -11,15 +11,51 @@
     <%- include('header.ejs') %>
   </header>
   <main id="detailsmain">
-    <h2>Country Details</h2>
+    <!-- Country Detail View -->
     <section id="details">
       <img  src="<%- country.flag_url %>" alt="<%- country.name %> flag"/>
       <h2><%- country.name %></h2>
-      <p>Languages: <%- country.language %></p>
+      <p>Language: <%- country.language %></p>
       <p>Region: <%- country.region %></p>
       <p>Subregion: <%- country.subregion %></p>
       <p>Capital City: <%- country.capital %></p>
+
+      <p>Travel Advisory:</p>
+      <ul>
+        <% if (advisory === 'not found') { %>
+          <li>No advisory available.</li>
+        <% } else { %>
+          <section id="advisory_data">
+            <li>Score: <%- advisory.score %> out of 5</li>
+              <% if (advisory.message === "" && advisory.score <= 2.4) { %>
+                <div id="green"></div>
+              </section>
+
+                <li>This country is relatively safe.</li>
+              <% } else if (advisory.message === "" && advisory.score <= 3.4) { %>
+                <div id="yellow"></div>
+              </section>
+
+                <li>Warnings may relate to specific regions within a country. However, high attention is still advised when traveling.</li>
+              <% } else if (advisory.message === "" && advisory.score <= 4.4) { %>
+                <div id="orange"></div>
+              </section>
+
+                <li>Travel should be reduced to a necessary minimum and be conducted with preparation and high attention.</li>  
+              <% } else if (advisory.message === "" && advisory.score >= 4.5) { %>
+                <div id="red"></div>
+              </section>
+
+                <li>Avoid traveling to this country at this time. A high warning index is a sound indicator of potential harm to your health and wellbeing.</li>
+              <% } else { %>
+                </section>
+                <li><%- advisory.message %></li>
+              <% } %>
+        <% } %>
+      </ul>
+
       <p>Currency: <%- country.currency %></p>
+
       <p>Exchange Rates:</p>
 
       <% if (rates.length > 0) { %>
@@ -35,6 +71,7 @@
           </ul>
           <% } %>
       </ul>
+      <p>Visit <a href="<%- visaURL %>" target="_blank">Visadb.io</a> for citizenship visa information.</p>
       <% if (country.inDB === 'true') { %>
         <form action="/delete" method="post">
           <input type="hidden" name="name" value="<%- country.name %>">
@@ -57,6 +94,8 @@
           <input type="hidden" name="currency" value="<%- country.currency %>">
           <input type="hidden" name="flag_url" value="<%- country.flag_url %>">
           <input type="hidden" name="currency_symbol" value="<%- country.currency_symbol %>">
+          <input type="hidden" name="alpha2Code" value="<%- country.alpha2Code %>">
+
         <button id="savebutton" type="submit">Save this Country</button>
         </form>
       <% } %>
