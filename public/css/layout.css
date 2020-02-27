@@ -204,6 +204,7 @@ button {
 #nocountries {
   text-align: center;
   padding: 1rem;
+  color: #eee;
 }
 #errormsg a button{
   width: 20%;
