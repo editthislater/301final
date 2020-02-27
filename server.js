@@ -79,7 +79,8 @@ function filterSearch (req, res) {
         return new Country(country);
       });
       res.render('results.ejs', {countries: constructedCountries});
-    });
+    })
+    .catch(error => errorHandler(error, req, res));
 }
 
 async function displayDetails (req, res){
