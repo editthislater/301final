@@ -42,4 +42,31 @@ main #results {
   max-height: 72vh;
   overflow: scroll;
 }
+#advisory_data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
+ul div {
+  width: 2rem;
+  height: 1rem;
+  margin-left: 1rem;
+}
+
+#green {
+  background-color: rgba(111, 175, 38);
+}
+
+#yellow {
+  background-color: rgb(252, 216, 11);
+}
+
+#orange {
+  background-color: rgb(207, 148, 37);
+}
+
+#red {
+  background-color: rgb(243, 64, 100);
+}
