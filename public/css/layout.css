@@ -97,7 +97,13 @@ body footer {
 button {
   display: block;
 }
-
+#aboutmain{
+width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+} 
 .container {
   position: relative;
   width: 50%;
@@ -105,7 +111,7 @@ button {
 
 .image {
   display: block;
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 
@@ -116,7 +122,7 @@ button {
   left: 0;
   right: 0;
   height: 100%;
-  width: 100%;
+  width: 50%;
   opacity: 0;
   transition: .5s ease;
   background-color: #002022ab;
@@ -136,4 +142,8 @@ button {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  overflow: scroll;
+}
+.text::-webkit-scrollbar{
+  display: none;
 }
