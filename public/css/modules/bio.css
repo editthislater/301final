@@ -1,5 +1,5 @@
 #aboutlink {
-  color: rgb(103, 168, 157);
+  color: rgb(144, 202, 164);;
   text-decoration: none;
 }
 
@@ -9,7 +9,7 @@
 }
 
 #aboutmain {
-  width: 50%;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

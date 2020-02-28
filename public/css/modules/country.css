@@ -50,7 +50,7 @@
 
 #details {
   background-color: #002022ab;
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -61,7 +61,7 @@
 }
 
 #details img {
-  max-width: 45%;
+  max-width: 50%;
 }
 
 #details h2 {
@@ -88,9 +88,10 @@
 }
 
 #advisorybox {
-  max-width: 45%;
+  max-width: 50%;
   margin-top: .4rem;
   border: 1px solid #eee;
+  padding: .2rem;
 }
 
 #currency_rates {
@@ -101,6 +102,10 @@
   padding: .2rem;
 }
 
+#visalink:hover {
+  background: rgb(90, 134, 105);
+}
+
 #savebutton {
   height: fit-content;
   margin-top: .5rem;
@@ -108,6 +113,7 @@
   color: #eee;
   border-radius: .5rem;
 }
+
 #savebutton:hover {
   cursor: pointer;
   background-color: #eee;

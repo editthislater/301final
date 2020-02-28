@@ -74,7 +74,7 @@
         </ul>
     </div>
 
-      <p>Visit <a href="<%- visaURL %>" target="_blank">Visadb.io</a> for citizenship visa information.</p>
+      <p>Visit <a  id="visalink" href="<%- visaURL %>" target="_blank">Visadb.io</a> for citizenship visa information.</p>
       <% if (country.inDB === 'true') { %>
         <form action="/delete" method="post">
           <input type="hidden" name="name" value="<%- country.name %>">
