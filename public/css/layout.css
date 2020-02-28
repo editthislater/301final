@@ -98,21 +98,24 @@ button {
   display: block;
 }
 #aboutmain{
-width: 70%;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  overflow: scroll;
+  padding-top: 1rem;
 } 
 .container {
   position: relative;
-  width: 50%;
+  width: fit-content;
 }
 
 .image {
   display: block;
-  width: 50%;
+  width: 13rem;
   height: auto;
+  margin: 1rem 1rem;
 }
 
 .overlay {
@@ -122,7 +125,7 @@ width: 70%;
   left: 0;
   right: 0;
   height: 100%;
-  width: 50%;
+  width: 100%;
   opacity: 0;
   transition: .5s ease;
   background-color: #002022ab;
@@ -143,7 +146,9 @@ width: 70%;
   transform: translate(-50%, -50%);
   text-align: center;
   overflow: scroll;
+  max-height: 75%;
 }
+
 .text::-webkit-scrollbar{
   display: none;
 }
