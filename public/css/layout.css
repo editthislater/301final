@@ -152,3 +152,7 @@ button {
 .text::-webkit-scrollbar{
   display: none;
 }
+
+.myname {
+  font-weight: bold;
+}
