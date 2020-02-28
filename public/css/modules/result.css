@@ -50,9 +50,9 @@ main #results {
 }
 
 ul div {
-  width: 2rem;
-  height: 1rem;
-  margin-left: 1rem;
+  width: 5rem;
+  height: 3rem;
+  margin: 1rem;
 }
 
 #green {
