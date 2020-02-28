@@ -3,31 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>xPatriate</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <header>
     <%- include('header.ejs') %>
-    <!-- <a href="/">
-      <h1 id="logo">xPatriate</h1>
-    </a> -->
   </header>
    
   <main>
+    <p id="homepageP">Considering moving out of the country? Search for a specific country our find a new country based on region and language preferences!</p>
     <nav>
       <button id="country_search">Search for Country</button>
       <button id="region_search">Filter by Region</button>
     </nav>
 
-    <!-- <section id="searchform" class="form"> -->
       <form id="newsearch" class="form" method="post" action="/searchspecific">
           <input id="searchbar" type="text" name ="search" placeholder="Search for a Specific Country"/>
           <button>Search</button>
       </form>
-    <!-- </section> -->
 
-    <!-- <section class="form"> -->
       <form id="regionform" class="form" method="post" action="/filtersearch">
         <label for="region">Region</label>
 
@@ -247,16 +242,9 @@
         <button>Search</button>
 
       </form>
-    <!-- </section> -->
-
-
-
-
-
 
     <section id="savedlist">
       <h1>Your Saved Countries</h1>
-      <!-- <ul id="temp"> -->
         <section>
           <% countries.forEach(country => { %>
             <form action="/details" method="post">
@@ -279,7 +267,6 @@
             </form>
           <% }) %>
         </section>
-      <!-- </ul> -->
     </section>
 
   </main>
