@@ -36,7 +36,6 @@ function homePage (req, res){
 
   client.query(SQL)
     .then(results => {
-      console.log('results.rows:', results.rows);
       res.render('index.ejs', {countries: results.rows});
     })
     // .catch(error => errorHandler(error));
@@ -131,8 +130,6 @@ async function getTravelAdvisory(alpha2Code) {
   }
 }
 
-
-
 function saveCountry (req, res) {
   console.log('req: ', req.body);
   let name = req.body.name;
@@ -168,7 +165,6 @@ function deleteCountry (req, res) {
     })
     .catch(err => errorHandler(err, req, res));
 }
-
 
 // Country constructor function
 function Country (data) {

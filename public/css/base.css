@@ -2,7 +2,6 @@ header {
   background-color: #002022ab;
   color: #eee;
   width: 100%;
-  /* margin: 1rem; */
   max-height: 20vh;
 }
 
@@ -21,8 +20,16 @@ a {
   color: inherit;
 }
 
-#results, #details, #savedlist, form {
-  /* -webkit-box-shadow: 6px 7px 30px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: 6px 7px 30px -5px rgba(0,0,0,0.75); */
+#results, #details, #savedlist, #regionform, #newsearch {
+  -webkit-box-shadow: 6px 7px 30px 5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 6px 7px 30px 5px rgba(0,0,0,0.75);
   box-shadow: 6px 7px 30px 5px rgba(0,0,0,0.75);
+}
+
+#homepageP {
+  background-color: #002022ab;
+  color: #eee;
+  padding: 1rem;
+  margin-top: 1rem;
+  text-align: center;
 }
