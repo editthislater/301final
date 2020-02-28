@@ -7,3 +7,64 @@
   text-decoration: none;
   color: inherit;
 }
+
+#aboutmain {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: scroll;
+  padding-top: 1rem;
+}
+
+.container {
+  position: relative;
+  width: fit-content;
+}
+
+.image {
+  display: block;
+  width: 13rem;
+  height: auto;
+  margin: 1rem 1rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #002022ab;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  overflow: scroll;
+  max-height: 75%;
+}
+
+.text::-webkit-scrollbar {
+  display: none;
+}
+
+.myname {
+  font-weight: bold;
+}

@@ -62,13 +62,6 @@ $(document).ready(function() {
       $('select#language-oceania').show();
     }
   });
-
-  // $('#subregion-asia').hide();
-  // $('#subregion-africa').show();
-  // $('#region').change(function() {
-  //   $('.subregion').hide();
-  //   $('#'+$(this).val()).show();
-  // });
 });
 
 // search option buttons toggle display of forms
