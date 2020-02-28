@@ -72,6 +72,7 @@
 #details p {
   color: #eee;
   margin: .3rem 0;
+  text-align: center;
 }
 
 #details ul {
@@ -86,8 +87,14 @@
   margin: .3rem 0;
 }
 
+#advisorybox {
+  max-width: 45%;
+  margin-top: .4rem;
+  border: 1px solid #eee;
+}
+
 #currency_rates {
-  min-height: 3rem;
+  min-height: 4rem;
   overflow: scroll;
   color: #eee;
   border: 1px solid #eee;
