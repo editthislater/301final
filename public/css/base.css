@@ -21,3 +21,8 @@ a {
   color: inherit;
 }
 
+#results, #details, #savedlist, form {
+  /* -webkit-box-shadow: 6px 7px 30px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 6px 7px 30px -5px rgba(0,0,0,0.75); */
+  box-shadow: 6px 7px 30px 5px rgba(0,0,0,0.75);
+}
