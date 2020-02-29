@@ -104,7 +104,7 @@ async function displayDetails (req, res){
     }
   }
   catch(err) {
-    console.error(err);
+    errorHandler(err, req, res);
   }
 }
 
